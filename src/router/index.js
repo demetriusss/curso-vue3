@@ -14,14 +14,14 @@ const routes = [
     name: 'FeedBacks',
     component: FeedBacks,
     meta:{
-      autenticacao: true
+      hasAuth: true
     }
   },{
     path: '/credentials',
     name: 'Credentials',
     component: Credentials,
     meta: {
-      autenticacao: true
+      hasAuth: true
     }
   },{
     //aqui é quando não cai em nenhuma rota ele redireciona para a raiz do site

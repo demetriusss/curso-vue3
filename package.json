@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "../../Downloads/projeto/node_modules/.bin/vue-cli-service serve",
-    "build": "../../Downloads/projeto/node_modules/.bin/vue-cli-service build",
-    "test:unit": "../../Downloads/projeto/node_modules/.bin/vue-cli-service test:unit",
-    "test:e2e": "../../Downloads/projeto/node_modules/.bin/vue-cli-service test:e2e"
+    "serve": "./node_modules/.bin/vue-cli-service serve",
+    "build": "./node_modules/.bin/vue-cli-service build",
+    "test:unit": "./node_modules/.bin/vue-cli-service test:unit",
+    "test:e2e": "./node_modules/.bin/vue-cli-service test:e2e"
   },
   "dependencies": {
     "axios": "^0.21.1",
