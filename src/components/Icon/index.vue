@@ -8,6 +8,7 @@
 //por isso que se nós chamamos esse componente passando a prop
 //com o nome escrito loading ele vai chamar o componente loading
 //lá no componente is, esse v-bind é para passar as props entre os componentes
+//importamos o componente por que ele vai ser criado aqui
 
 import Loading from './Loading.vue';
 

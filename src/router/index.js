@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home';
-import FeedBacks from '../views/FeedBacks';
-import Credentials from '../views/Credentials';
+
+//fazendo o import dessa forma ele somente carrega o componente
+//quando chamamos a rota
+
+const Home = () => import('../views/Home');
+const FeedBacks = () => import('../views/FeedBacks');
+const Credentials = () => import('../views/Credentials');
 
 const routes = [
   {
@@ -14,19 +18,21 @@ const routes = [
     name: 'FeedBacks',
     component: FeedBacks,
     meta:{
-      hasAuth: true
+      necessitaAuth: true
     }
   },{
     path: '/credentials',
     name: 'Credentials',
     component: Credentials,
     meta: {
-      hasAuth: true
+      necessitaAuth: true
     }
   },{
-    //aqui é quando não cai em nenhuma rota ele redireciona para a raiz do site
+    //esse meta é para passar dados para navegar junto das rotas...
+    //nesse caso se tentarmos acessar a home vai ser false...
     path: '/:pathMatch(.*)*',
     redirect: {name: 'Home'}
+    //aqui encima é quando não cai em nenhuma rota ele redireciona para a raiz do site
   }
 ]
 

@@ -18,7 +18,7 @@ export default {
     //esse watch fica escutando as mudanças de uma variável que no caso tem as informações rota
     //quando essa variavel mudar ele executa esse segunda função do segundo parâmetro
     watch(() => route.path, async () => {
-      if(route.meta.hasAuth) {
+      if(route.meta.necessitaAuth) {
 
         const token = window.localStorage.getItem('token');
 
@@ -27,7 +27,7 @@ export default {
           return
         }
 
-        const { data } = await services.users.getMe();
+        const { data } = await services.users.getMe();//pega o usuário logado
         console.log('data', data);
 
       }

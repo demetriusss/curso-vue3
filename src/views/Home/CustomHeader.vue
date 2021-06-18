@@ -10,15 +10,13 @@
           <button
               id="header-create-account-button"
               @click="() => context.emit('create-account')"
-              class="px-6 py-2 font-bold rounded-full text-white focus:outline-none"
-          >
+              class="px-6 py-2 font-bold rounded-full text-white focus:outline-none">
             Crie uma conta
           </button>
           <button
               id="header-login-button"
               @click="() => context.emit('login')"
-              class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none"
-          >
+              class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">
             Entrar
           </button>
         </div>
@@ -36,10 +34,9 @@
         </p>
         <div>
           <button
-              @click="() => emit('create-account')"
+              @click="() => context.emit('create-account')"
               id="cta-create-account-button"
-              class="px-6 py-2 mt-10 font-bold bg-white rounded-full text-brand-main focus:outline-none"
-          >
+              class="px-6 py-2 mt-10 font-bold bg-white rounded-full text-brand-main focus:outline-none">
             Crie uma conta grátis
           </button>
         </div>
@@ -50,6 +47,8 @@
 
 <script>
   export default {
+    //isso é para emitir o evento... pra o outro componente
+    //a função setup tem dois parametros um é o prop e o outro é o context que tem uma função e emitir
     setup(props, context){
       return {context}
     }
@@ -58,6 +57,9 @@
 
 <style lang="postcss" scoped>
   .header{
+    /*esse apply é do postCSS ele diz que esse css vai extender essas classes do tailwind
+      o scoped é pra ele não vazar pra lugar nenhum
+    */
     @apply bg-brand-main w-full flex justify-center;
     height: 700px;
   }

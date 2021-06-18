@@ -9,6 +9,8 @@
     <form @submit.prevent="handleSubmit"></form>
     <label class="block">
       <span class="text-lg font-medium text-gray-800">E-mail</span>
+      <!-- esse vmodel é pra linkar essa variavel ao valor do input -->
+      <!-- logo abaixo o class binding do vue -->
       <input
           v-model="state.email.value"
           type="email"
@@ -35,14 +37,20 @@
         {{state.password.errorMessage}}
     </span>
 
-    <button :disabled="state.isLoading" type="submit"
-            @click="handleSubmit"
-            :class="{'opacity-50' : state.isLoading}"
-            class="px-8 py-3 mt-10 text-2xl font-bold text-white rounded-full bg-brand-main focus:outline-none transition-all duration-150">
 
-      <icone v-if="state.isLoading" name="loading" class="animate-spin"></icone>
-      <span v-else>Entrar</span>
-    </button>
+    <div class="flex justify-end items-center justify-items-center mt-10">
+
+      <button @click="close" class="text-gray-600 focus:outline-none mr-9">Cancelar</button>
+
+      <button :disabled="state.isLoading" type="submit"
+              @click="handleSubmit"
+              :class="{'opacity-50' : state.isLoading}"
+              class="px-8 py-3 text-1xl font-bold text-white rounded-full bg-brand-main focus:outline-none transition-all duration-150">
+
+        <icone v-if="state.isLoading" name="loading" class="animate-spin"></icone>
+        <span v-else>Entrar</span>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -65,6 +73,8 @@
       const router = useRouter();
       const toast = useToast();
 
+      //aqui estamos fazendo desestruturação para pegar o retorno da função useField
+      //e renomeamos os parametros para usar em outro local
       const {
         value: emailValue,
         errorMessage : emailErrorMessage

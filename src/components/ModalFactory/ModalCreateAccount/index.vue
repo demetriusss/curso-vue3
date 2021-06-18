@@ -49,14 +49,19 @@
         {{state.password.errorMessage}}
     </span>
 
-    <button :disabled="state.isLoading" type="submit"
-            @click="handleSubmit"
-            :class="{'opacity-50' : state.isLoading}"
-            class="px-8 py-3 mt-10 text-2xl font-bold text-white rounded-full bg-brand-main focus:outline-none transition-all duration-150">
+    <div class="flex justify-end items-center justify-items-center mt-10">
 
-      <icone v-if="state.isLoading" name="loading" class="animate-spin"></icone>
-      <span v-else>Entrar</span>
-    </button>
+      <button @click="close" class="text-gray-600 focus:outline-none mr-9">Cancelar</button>
+
+      <button :disabled="state.isLoading" type="submit"
+              @click="handleSubmit"
+              :class="{'opacity-50' : state.isLoading}"
+              class="px-8 py-3 text-1xl font-bold text-white rounded-full bg-brand-main focus:outline-none transition-all duration-150">
+
+        <icone v-if="state.isLoading" name="loading" class="animate-spin"></icone>
+        <span v-else>Criar conta</span>
+      </button>
+    </div>
   </div>
 </template>
 
